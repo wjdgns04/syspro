@@ -3,10 +3,12 @@
 
 char line[MAXLINE]; 
 char longest[MAXLINE];
+char shortest[MAXLINE];
 
 main(){
 	int len;
 	int max;
+	int min = MAXLINE;
 	max = 0;
 
 	while(gets(line) != NULL) {
@@ -16,9 +18,16 @@ main(){
 			max = len;
 			copy(line,longest);
 		}
+		if(len < min &&len > 0){
+			min = len;
+			copy(line,shortest);
+		}
 	}
-	if(max > 0)
-		printf("%s \n",longest);
-
+	if(max > 0){
+		printf("longest:%s\n",longest);
+	}
+	if (min < MAXLINE){
+		printf("shortest:%s\n",shortest);
+	}
 	return 0;
 }

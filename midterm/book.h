@@ -2,8 +2,8 @@
 #define START_ID 1001001
 
 struct book {
-   char bookname[MAX];
    int id;
+   char bookname[MAX];
    char author;
    int year;
    int numofborrow;

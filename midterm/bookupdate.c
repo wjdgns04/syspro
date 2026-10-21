@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
             scanf("%s", &record.borrow);
             lseek(fd, (long) -sizeof(record), SEEK_CUR);
             write(fd, (char *) &record, sizeof(record));
-         } else printf("Record %s Null\n", borrow);
+         } else printf("Record %s Null\n", id);
       } else printf("Insert Error\n");
       printf("Continue?(Y/N)");
       scanf(" %c",&c);

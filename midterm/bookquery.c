@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
       if (scanf("%d", &id) == 1) {
          lseek(fd, (id-START_ID)*sizeof(record), SEEK_SET);
           if ((read(fd, (char *) &record, sizeof(record)) > 0) && (record.id != 0))
-       printf("id:%d\t bookname:%s\t author:%s\t year:%d\t numofborrow:%d\t borrow:%s\t\n", record.id, record.bookname, record.author, record.year, record numofborrow, record.borrow);
+       printf("id:%d\t bookname:%s\t author:%s\t year:%d\t numofborrow:%d\t borrow:%s\t\n", record.id, record.bookname, record.author, record.year, record.numofborrow, record.borrow);
          else printf("Record %d Null\n", id);
       } else printf("Input Error");
       printf("Continue?(Y/N)");

@@ -1,0 +1,13 @@
+#define MAX 24
+#define START_ID 1001001
+
+struct book {
+   char bookname[MAX];
+   int id;
+   char author;
+   int year;
+   int numofborrow;
+   char borrow;
+};
+
+

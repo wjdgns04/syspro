@@ -1,0 +1,10 @@
+chap3
+hw1,prob1
+chap7
+prob1,prob2chap3
+
+
+
+
+
+

@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include "copy.h"
 
+char line[MAXLINE];
+char longest[MAXLINE];
+char shortest[MAXLINE];
+
 int get_length(char s[]) {
     int i = 0;
     while (s[i] != '\0') {
@@ -10,26 +14,30 @@ int get_length(char s[]) {
 }
 
 int main() {
-    char lines[5][MAXLINE];
-    char temp[MAXLINE];
-    int count = 0;
+    int len;
+    int max = 0;
+    int min = MAXLINE;
 
-    while (count < 5 && gets(lines[count]) != NULL) {
-        count++;
-    }
+    while (gets(line) != NULL) {
+        len = get_length(line);
 
-    for (int i = 0; i < count - 1; i++) {
-        for (int j = i + 1; j < count; j++) {
-            if (get_length(lines[i]) < get_length(lines[j])) {
-                copy(lines[i], temp);
-                copy(lines[j], lines[i]);
-                copy(temp, lines[j]);
-            }
+        if (len > max) {
+            max = len;
+            copy(line, longest);
+        }
+
+        if (len < min && len > 0) {
+            min = len;
+            copy(line, shortest);
         }
     }
 
-    for (int i = 0; i < count; i++) {
-        printf("%s\n", lines[i]);
+    if (max > 0) {
+        printf("longest: %s\n", longest);
+    }
+    
+    if (min < MAXLINE) {
+        printf("shortest: %s\n", shortest);
     }
 
     return 0;
